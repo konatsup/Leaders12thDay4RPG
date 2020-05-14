@@ -2,7 +2,7 @@ package answer.dev4
 
 /**
  * Dev4
- * ドラゴンの生成
+ * デーモンの生成
  * スライムと同じくname, hp, attackPoint, defencePoint, attack(), guard()を持っている
  * しかし、colorは持っていない
  * class, インスタンス化
@@ -15,9 +15,9 @@ package answer.dev4
 スライム のターン
 スライム の攻撃!!
 勇者のHP: 25
-ドラゴン のターン
-ドラゴン の攻撃!!
-勇者のHP: 5
+デーモン のターン
+デーモン の攻撃!!
+勇者のHP: 15
  */
 
 import kotlin.random.Random
@@ -40,13 +40,13 @@ fun main() {
     // 勇者のHPの表示
     println("${hero.name}のHP: ${hero.hp}")
 
-    // ドラゴンの生成
-    val dragon: Dragon = Dragon("ドラゴン")
-    println("${dragon.name} のターン")
+    // デーモンの生成
+    val demon: Demon = Demon("デーモン")
+    println("${demon.name} のターン")
 
-    // ドラゴンが勇者を攻撃する
-    println("${dragon.name} の攻撃!!")
-    dragon.attack(hero)
+    // デーモンが勇者を攻撃する
+    println("${demon.name} の攻撃!!")
+    demon.attack(hero)
 
     // 勇者のHPの表示
     println("${hero.name}のHP: ${hero.hp}")
@@ -56,8 +56,8 @@ fun main() {
 class Slime(val name: String) {
     val color: String = "BLUE"
     var hp: Int = 10
-    val attackPoint: Int = 5 // 攻撃力
-    val defensePoint: Int = 2 // 防御力
+    val attackPoint: Int = 5
+    val defensePoint: Int = 2
 
     fun attack(target: Hero) {
         target.hp = target.hp - attackPoint
@@ -68,11 +68,11 @@ class Slime(val name: String) {
     }
 }
 
-// Dragonクラスの定義(hp: 50, attackPoint: 20, defensePoint: 10)
-class Dragon(val name: String) {
-    var hp: Int = 50
-    val attackPoint: Int = 20 // 攻撃力
-    val defensePoint: Int = 10 // 防御力
+// Demonクラスの定義(hp: 5, attackPoint: 10, defensePoint: 2)
+class Demon(val name: String) {
+    var hp: Int = 5
+    val attackPoint: Int = 10
+    val defensePoint: Int = 2
 
     fun attack(target: Hero) {
         target.hp = target.hp - attackPoint
